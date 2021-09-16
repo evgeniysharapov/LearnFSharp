@@ -36,3 +36,4 @@ type WeatherForecastController (logger : ILogger<WeatherForecastController>) =
                   TemperatureC = rng.Next(-20,55)
                   Summary = summaries.[rng.Next(summaries.Length)] }
         |]
+
