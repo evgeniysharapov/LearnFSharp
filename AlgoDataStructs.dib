@@ -1,0 +1,33 @@
+#!fsharp
+
+"4" |> int
+
+#!markdown
+
+# Stuck In A Time Loop
+
+#!fsharp
+
+open System
+// Console.ReadLine() 
+"5"
+|> int 
+|> Seq.init <| (fun _ -> 0) 
+|> Seq.iteri (fun i v -> printfn "%d Abracadabra" (i + 1) )
+
+#!markdown
+
+# Autori
+[Link to the task](https://open.kattis.com/problems/autori)
+
+#!fsharp
+
+"Knuth-Morris-Pratt" 
+//open System
+//Console.ReadLine()
+|> (fun l -> l.Split "-") 
+|> Seq.map ( fun x -> x |> Seq.toList |> Seq.take 1)
+|> Seq.concat
+|> Seq.map string
+|> String.concat ""
+|> printfn "%s"
