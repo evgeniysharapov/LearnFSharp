@@ -31,3 +31,32 @@ open System
 |> Seq.map string
 |> String.concat ""
 |> printfn "%s"
+
+#!markdown
+
+# Above Average
+
+[Link to the task](https://open.kattis.com/problems/aboveaverage)
+
+It is said that 90% of frosh expect to be above average in their class. You are to provide a reality check.
+
+## Input
+The first line of standard input contains an integer 1≤𝐶≤50, the number of test cases. 𝐶 data sets follow. Each data set begins with an integer, 𝑁, the number of people in the class (1≤𝑁≤1000). 𝑁 integers follow, separated by spaces or newlines, each giving the final grade (an integer between 0 and 100) of a student in the class.
+
+## Output
+For each case you are to output a line giving the percentage of students whose grade is above average, rounded to exactly 3 decimal places.
+
+#!fsharp
+
+open System
+
+let C = Console.ReadLine() |> int
+// let C = 1
+for i = 1 to C do
+    // let line = "9 100 99 98 97 96 95 94 93 91"
+    let line = Console.ReadLine()
+    let (n::grades) =  line.Split(" ") |> Seq.map int |> List.ofSeq
+    let avg = List.sum grades / n
+    let p = List.filter (fun e -> e > avg) grades |> List.length
+    let percent = (float p) / (float n) * (float 100)
+    printfn "%5.3f%%" percent 
